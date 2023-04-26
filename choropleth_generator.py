@@ -121,6 +121,11 @@ highestcasenumber =int(listofcasenumbers.max())+5
 
 #threshold_scale = [0,5,10,25,50,highestcasenumber]
 # generate choropleth map
+
+upperlimit = 200
+if highestcasenumber > upperlimit:
+    upperlimit = highestcasenumber + 1
+
 hmap.choropleth(
     geo_data=merged_table2,
     data=merged_table2,
@@ -128,7 +133,7 @@ hmap.choropleth(
     key_on='feature.properties.GEOID10',
     fill_color='YlOrRd',
     fill_opacity=0.6,
-    threshold_scale = [0,10,25,50,100 ,highestcasenumber],
+    threshold_scale = [0,5,10,25,50 ,upperlimit],
     line_opacity=1,
     legend_name='New Cases per 100K (rolling 7-day average)',
     smooth_factor=0
@@ -149,5 +154,3 @@ folium.GeoJson(merged_table2, name = "covidtracker",
 #to save heatmap to file
 
 hmap.save(os.path.join('/home/ec2-user/covidtracker/pygeo_heatmap/results', 'heatmap.html'))
-
-
