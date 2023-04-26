@@ -5,5 +5,5 @@ The initial script covidtracker.py was written in Python2.7. This is superseded 
 
 The optimal implmentation is to first run covidtracker_py3.py to compute all the necessary data, followed by choropleth_generator.py to output the heatmap.
 
-A web implementation can be seen at http://lacrossecovid19.org
+A web implementation was located at http://lacrossecovid19.org (Terminated 04/26/2023 as reporting of test data to states has been unreliable for some time due to the utilization of home testing).
 
